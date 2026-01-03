@@ -283,7 +283,7 @@ plugin.setEngineTimeout(10 * 60000);
 
 The methods from the example above change the settings globally, that is, for all instances of the plugin.
 
-The default values are the `./data` directory for the working folder and `300000` milliseconds for the request timeout.
+The default values are the `./data` folder for the working folder and `300000` milliseconds for the request timeout.
 
 An empty string is used for the fingerprint service key by default, which means that the free version of the service will be used.
 
@@ -665,9 +665,9 @@ The same goes for some framework-specific launch options.
 The Chrome browser executable is automatically downloaded and stored in the **working folder**:
 
 - **Default location**: `./data` (relative to your project root)
-- **Custom location**: You can change this using `plugin.setWorkingFolder('./your-custom-path')`
+- **Custom location**: You can change this by calling `plugin.setWorkingFolder('./your-custom-path')` before launching the browser
 - The Chrome executable and related files are stored within this working folder
-- Browser profiles are created in `./data/profiles/` directory by default when no custom profile path is configured
+- Browser profiles are created in a `profiles/` subfolder within the working folder (e.g., `./data/profiles/`) when no custom profile path is configured
 
 For example, if your project is at `C:\MyProject\`, the Chrome browser will be downloaded to `C:\MyProject\data\` by default.
 
