@@ -287,7 +287,7 @@ The default values are the `./data` directory for the working folder and `300000
 
 An empty string is used for the fingerprint service key by default, which means that the free version of the service will be used.
 
-**Note**: The working folder is where the Chrome browser core (executable) and engine files are stored. When you first use the plugin, it will automatically download the Chrome browser to this location.
+**Note**: The working folder is where the Chrome browser executable and engine files are stored. When you first use the plugin, it will automatically download the Chrome browser to this location.
 
 ## Configuring browser
 
@@ -662,7 +662,7 @@ The same goes for some framework-specific launch options.
 
 #### Chrome Browser Location
 
-The Chrome browser core (executable) is automatically downloaded and stored in the **working folder**:
+The Chrome browser executable is automatically downloaded and stored in the **working folder**:
 
 - **Default location**: `./data` (relative to your project root)
 - **Custom location**: You can change this using `plugin.setWorkingFolder('./your-custom-path')`
