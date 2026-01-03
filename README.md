@@ -667,7 +667,7 @@ The Chrome browser executable is automatically downloaded and stored in the **wo
 - **Default location**: `./data` (relative to your project root)
 - **Custom location**: You can change this using `plugin.setWorkingFolder('./your-custom-path')`
 - The Chrome executable and related files are stored within this working folder
-- Browser profiles (if not specified) are also created in `data/profiles/` directory
+- Browser profiles (if not specified) are also created in `./data/profiles/` directory by default
 
 For example, if your project is at `C:\MyProject\`, the Chrome browser will be downloaded to `C:\MyProject\data\` by default.
 
