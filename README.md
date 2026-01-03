@@ -287,6 +287,8 @@ The default values are the `./data` directory for the working folder and `300000
 
 An empty string is used for the fingerprint service key by default, which means that the free version of the service will be used.
 
+**Note**: The working folder is where the Chrome browser core (executable) and engine files are stored. When you first use the plugin, it will automatically download the Chrome browser to this location.
+
 ## Configuring browser
 
 In order to change the fingerprint and proxy for your browser, you should use special separate methods:
@@ -653,9 +655,21 @@ The plugin architecture can be summarized as the following diagram:
 ![Architecture](https://github.com/CheshireCaat/browser-with-fingerprints/raw/master/assets/plugin.jpg)
 
 All packages can only work with the **Chrome** browser, which comes bundled with the libraries and loads automatically.
+The Chrome browser executable is stored in the plugin's working folder, which defaults to `./data` directory (relative to your project root).
 The path to the executable file is defined on the plugin side and cannot be changed.
 It means that you will not be able to use not only other versions of **Chrome** or **Chromium**, but also other browser engines.
 The same goes for some framework-specific launch options.
+
+#### Chrome Browser Location
+
+The Chrome browser core (executable) is automatically downloaded and stored in the **working folder**:
+
+- **Default location**: `./data` (relative to your project root)
+- **Custom location**: You can change this using `plugin.setWorkingFolder('./your-custom-path')`
+- The Chrome executable and related files are stored within this working folder
+- Browser profiles (if not specified) are also created in `data/profiles/` directory
+
+For example, if your project is at `C:\MyProject\`, the Chrome browser will be downloaded to `C:\MyProject\data\` by default.
 
 This library tries to replicate the interfaces of the **playwright** framework as much as possible.
 Thus, it's convenient to use it not only for new projects, but also when migrating from the original version to this plugin.
