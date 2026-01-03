@@ -665,11 +665,12 @@ The same goes for some framework-specific launch options.
 The Chrome browser executable is automatically downloaded and stored in the **working folder**:
 
 - **Default location**: `./data` (relative to your project root)
+- **Chrome engine folder**: The Chrome browser engine files are located directly within the working folder (e.g., `./data/`)
 - **Custom location**: You can change this by calling `plugin.setWorkingFolder('./your-custom-path')` before launching the browser
 - The Chrome executable and related files are stored within this working folder
 - Browser profiles are created in a `profiles/` subfolder within the working folder (e.g., `./data/profiles/`) when no custom profile path is configured
 
-For example, if your project is at `C:\MyProject\`, the Chrome browser will be downloaded to `C:\MyProject\data\` by default.
+For example, if your project is at `C:\MyProject\`, the Chrome engine will be in `C:\MyProject\data\` by default.
 
 This library tries to replicate the interfaces of the **playwright** framework as much as possible.
 Thus, it's convenient to use it not only for new projects, but also when migrating from the original version to this plugin.
