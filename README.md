@@ -655,7 +655,7 @@ The plugin architecture can be summarized as the following diagram:
 ![Architecture](https://github.com/CheshireCaat/browser-with-fingerprints/raw/master/assets/plugin.jpg)
 
 All packages can only work with the **Chrome** browser, which comes bundled with the libraries and loads automatically.
-The Chrome browser executable is stored in the plugin's working folder, which defaults to `./data` directory (relative to your project root).
+The Chrome browser executable is stored in the plugin's working folder, which defaults to `./data` folder (relative to your project root).
 The path to the executable file is defined on the plugin side and cannot be changed.
 It means that you will not be able to use not only other versions of **Chrome** or **Chromium**, but also other browser engines.
 The same goes for some framework-specific launch options.
