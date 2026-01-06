@@ -283,9 +283,11 @@ plugin.setEngineTimeout(10 * 60000);
 
 The methods from the example above change the settings globally, that is, for all instances of the plugin.
 
-The default values are the `./data` directory for the working folder and `300000` milliseconds for the request timeout.
+The default values are the `./data` folder for the working folder and `300000` milliseconds for the request timeout.
 
 An empty string is used for the fingerprint service key by default, which means that the free version of the service will be used.
+
+**Note**: The working folder is where the Chrome browser executable and engine files are stored. When you first use the plugin, it will automatically download the Chrome browser to this location.
 
 ## Configuring browser
 
@@ -653,9 +655,22 @@ The plugin architecture can be summarized as the following diagram:
 ![Architecture](https://github.com/CheshireCaat/browser-with-fingerprints/raw/master/assets/plugin.jpg)
 
 All packages can only work with the **Chrome** browser, which comes bundled with the libraries and loads automatically.
+The Chrome browser executable is stored in the plugin's working folder, which defaults to the `./data` folder (relative to your project root).
 The path to the executable file is defined on the plugin side and cannot be changed.
 It means that you will not be able to use not only other versions of **Chrome** or **Chromium**, but also other browser engines.
 The same goes for some framework-specific launch options.
+
+#### Chrome Browser Location
+
+The Chrome browser executable is automatically downloaded and stored in the **working folder**:
+
+- **Default location**: `./data` (relative to your project root)
+- **Chrome engine folder**: The Chrome browser engine files are located directly within the working folder (e.g., `./data/`)
+- **Custom location**: You can change this by calling `plugin.setWorkingFolder('./your-custom-path')` before launching the browser
+- The Chrome executable and related files are stored within this working folder
+- Browser profiles are created in a `profiles/` subfolder within the working folder (e.g., `./data/profiles/`) when no custom profile path is configured
+
+For example, if your project is at `C:\MyProject\`, the Chrome engine will be in `C:\MyProject\data\` by default.
 
 This library tries to replicate the interfaces of the **playwright** framework as much as possible.
 Thus, it's convenient to use it not only for new projects, but also when migrating from the original version to this plugin.
